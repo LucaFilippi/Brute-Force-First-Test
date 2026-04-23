@@ -1,0 +1,10 @@
+{
+  "john_doe": {
+    "password_hash": "b48b168f222f7a61fea00abe54a89ea853eb5fd1bdad0313d44f8f9d2c689d6e",
+    "salt": "4596f94a19f2a3552b8235ff5a8bfa59"
+  },
+  "alice": {
+    "password_hash": "a21a58b74f7ae12eebcb4f96b1e519d81c0d0c7ac8d99caab2749cb96471a2bf",
+    "salt": "97e870f6fe4e08ce8aeb5435a6be4e25"
+  },
+}
