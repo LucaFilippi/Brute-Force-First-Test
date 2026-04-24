@@ -1,14 +1,18 @@
 {
-  "test_user": {
-    "password_hash": "673252b5b66553fdccabdd18ed512a2c8dc33370dc8906a613c876df1f38b899",
-    "salt": "5614c919c989e6e0c22ca78104977671"
+  "fraca_user": {
+    "password_hash": "55d561ded32987b022d0ce4d109daa01ce200874ceba57b4340d0e922a5c2b7e",
+    "salt": "70b1f6dd9c0bcdfdc1dabc7cad7e9a02"
   },
-  "another_user": {
-    "password_hash": "aa3cc916eedc26d8b8ddb884381fecf4cede4de13d381f39038af6076163f3d7",
-    "salt": "6de36a1a8af6ce7c009e5adfbae86afd"
+  "forte_user": {
+    "password_hash": "93d05e2d76f80643b1cb4a53ee2a46ad0514c03ed29065b109c481de0cc098b4",
+    "salt": "1e95b2884dc41b848b45a16d2265662c"
   },
-  "Luca Filippi #1": {
-    "password_hash": "5277ac9b1b6aeffc6e645c6964d73cebcc84db8098e20bbe466b7df1e2055d15",
-    "salt": "df69b1a3169a4fa8daa54ca129d3ed0b"
+  "vazio_user": {
+    "password_hash": "c83bdaadea8b1a05cf59763641303a8d8ad9ce40aeea6fe83433ec3446a68d9b",
+    "salt": "536626ee6c413cc036a5cf150457be73"
+  },
+  "Usu\u00e1rio 1": {
+    "password_hash": "9a922ae97d76c3f346567694f78c26ce0ad43553696562ad0f71d651ecbc990c",
+    "salt": "2de58efe2151c26cb56785c9e8a1ab29"
   }
 }

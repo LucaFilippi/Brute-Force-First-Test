@@ -41,3 +41,7 @@ MANIFEST
 .pytest_cache/
 .coverage
 htmlcov/
+
+# Wordlists — arquivos pesados, não vão pro repositório
+*.txt
+rockyou.txt

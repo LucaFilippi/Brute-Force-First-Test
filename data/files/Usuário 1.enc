@@ -1,0 +1,7 @@
+{
+  "username": "Usu\u00e1rio 1",
+  "salt": "e06d35ea7130ad13aa3295e79a087da0",
+  "nonce": "d6da8823d4f430fa3bdb7128",
+  "tag": "1953c57e748571feca8369f8f72b703a",
+  "ciphertext": "dc5a438de0f144bed301fcd08de47d3b69b53e717d40121dd81cf2f33ba6b84948e5"
+}

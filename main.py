@@ -3,13 +3,12 @@ from tkinter import messagebox
 import sys
 from pathlib import Path
 
-# garante que imports funcionam a partir da raiz do projeto
 sys.path.insert(0, str(Path(__file__).parent))
 
 from core.auth import create_user, validate_user
 from app.create_md import create_md_file, decrypt_md_file
 
-# ── Paleta & constantes ────────────────────────────────────────────────────────
+# Color palette and fonts
 BG        = "#0d0d0d"
 PANEL     = "#141414"
 BORDER    = "#222222"
@@ -81,11 +80,9 @@ class LoginScreen(tk.Frame):
         self._build()
 
     def _build(self):
-        # header
         tk.Label(self, text="SecureVault", bg=BG, fg=ACCENT, font=FONT_HEAD).pack(pady=(48, 4))
         tk.Label(self, text="encrypted markdown storage", bg=BG, fg=MUTED, font=FONT_SUB).pack(pady=(0, 36))
 
-        # painel
         panel = tk.Frame(self, bg=PANEL, highlightthickness=1, highlightbackground=BORDER)
         panel.pack(padx=40, fill="x")
 
@@ -104,35 +101,34 @@ class LoginScreen(tk.Frame):
 
         tk.Label(panel, text="", bg=PANEL).pack()
 
-        # rodapé
         tk.Label(self, text="AES-256-GCM · PBKDF2-SHA256", bg=BG, fg=MUTED, font=FONT_SUB).pack(pady=(24, 0))
 
     def _login(self):
         u, p = self.user_e.get().strip(), self.pass_e.get()
         if not u or not p:
-            messagebox.showwarning("Atenção", "Preencha usuário e senha.")
+            messagebox.showwarning("Alert", "Username and password required.")
             return
         if validate_user(u, p):
             self.master.current_user = u
             self.master.current_pass = p
             self.master.show_frame(DashboardScreen)
         else:
-            messagebox.showerror("Acesso negado", "Usuário ou senha incorretos.")
+            messagebox.showerror("Access Denied", "Invalid username or password.")
 
     def _register(self):
         u, p = self.user_e.get().strip(), self.pass_e.get()
         if not u or not p:
-            messagebox.showwarning("Atenção", "Preencha usuário e senha.")
+            messagebox.showwarning("Alert", "Username and password required.")
             return
         if len(p) < 6:
-            messagebox.showwarning("Senha fraca", "Use ao menos 6 caracteres.")
+            messagebox.showwarning("Weak Password", "Use at least 6 characters.")
             return
         if create_user(u, p):
             self.master.current_user = u
             self.master.current_pass = p
             self.master.show_frame(DashboardScreen)
         else:
-            messagebox.showerror("Erro", "Usuário já existe.")
+            messagebox.showerror("Error", "User already exists.")
 
 
 # ── Dashboard ──────────────────────────────────────────────────────────────────
@@ -144,14 +140,12 @@ class DashboardScreen(tk.Frame):
     def _build(self):
         u = self.master.current_user
 
-        # header
         header = tk.Frame(self, bg=PANEL, highlightthickness=1, highlightbackground=BORDER)
         header.pack(fill="x")
         tk.Label(header, text=f"  🔐 SecureVault", bg=PANEL, fg=ACCENT, font=FONT_BTN).pack(side="left", pady=14, padx=8)
         tk.Label(header, text=f"logged in as {u}", bg=PANEL, fg=MUTED, font=FONT_SUB).pack(side="left")
         styled_btn(header, "LOGOUT", self._logout, color=BORDER).pack(side="right", padx=12, pady=8)
 
-        # botões principais
         center = tk.Frame(self, bg=BG)
         center.pack(expand=True)
 
@@ -180,7 +174,7 @@ class CreateScreen(tk.Frame):
 
     def _build(self):
         tk.Label(self, text="Create Markdown", bg=BG, fg=ACCENT, font=("Courier New", 16, "bold")).pack(pady=(32, 4))
-        tk.Label(self, text="content will be encrypted with your password", bg=BG, fg=MUTED, font=FONT_SUB).pack(pady=(0, 16))
+        tk.Label(self, text="Content will be encrypted with your password", bg=BG, fg=MUTED, font=FONT_SUB).pack(pady=(0, 16))
 
         panel = tk.Frame(self, bg=PANEL, highlightthickness=1, highlightbackground=BORDER)
         panel.pack(padx=40, fill="both", expand=True)
@@ -203,15 +197,15 @@ class CreateScreen(tk.Frame):
     def _save(self):
         content = self.text.get("1.0", "end").strip()
         if not content:
-            messagebox.showwarning("Atenção", "Escreva algum conteúdo antes de salvar.")
+            messagebox.showwarning("Alert", "Write some content before saving.")
             return
         u = self.master.current_user
         p = self.master.current_pass
         if create_md_file(u, p, content):
-            messagebox.showinfo("Sucesso", "Arquivo criptografado e salvo!")
+            messagebox.showinfo("Success", "File encrypted and saved!")
             self.master.show_frame(DashboardScreen)
         else:
-            messagebox.showerror("Erro", "Não foi possível salvar o arquivo.")
+            messagebox.showerror("Error", "Failed to save file.")
 
 
 # ── Ver Markdown ───────────────────────────────────────────────────────────────
@@ -222,7 +216,7 @@ class ViewScreen(tk.Frame):
 
     def _build(self):
         tk.Label(self, text="View Markdown", bg=BG, fg=ACCENT, font=("Courier New", 16, "bold")).pack(pady=(32, 4))
-        tk.Label(self, text="confirm your password to decrypt", bg=BG, fg=MUTED, font=FONT_SUB).pack(pady=(0, 20))
+        tk.Label(self, text="Confirm your password to decrypt", bg=BG, fg=MUTED, font=FONT_SUB).pack(pady=(0, 20))
 
         panel = tk.Frame(self, bg=PANEL, highlightthickness=1, highlightbackground=BORDER)
         panel.pack(padx=40, fill="x")
@@ -237,7 +231,6 @@ class ViewScreen(tk.Frame):
 
         tk.Label(panel, text="", bg=PANEL).pack()
 
-        # área de resultado
         self.result_frame = tk.Frame(self, bg=BG)
         self.result_frame.pack(padx=40, fill="both", expand=True, pady=(16, 0))
 
@@ -245,14 +238,12 @@ class ViewScreen(tk.Frame):
         p = self.pass_e.get()
         u = self.master.current_user
 
-        # limpa resultado anterior
         for w in self.result_frame.winfo_children():
             w.destroy()
 
         result = decrypt_md_file(u, p)
 
         if result is None:
-            # senha errada → GCM rejeitou → mostra aviso visual
             tk.Label(
                 self.result_frame,
                 text="⚠  DECRYPTION FAILED",

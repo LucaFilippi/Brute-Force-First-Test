@@ -1,0 +1,7 @@
+{
+  "username": "fraca_user",
+  "salt": "54bb80313b7b687cdb78556c3c110c53",
+  "nonce": "3172c5d25ad809f0364c8c8f",
+  "tag": "60541748b04ddc9487de5663b9234c2a",
+  "ciphertext": "ae16fcea2887deb788730cb0382080709f46e2ee7a3387eeb685c56f87dda1aa"
+}
