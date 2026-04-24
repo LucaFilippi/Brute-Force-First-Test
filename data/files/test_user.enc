@@ -1,0 +1,7 @@
+{
+  "username": "test_user",
+  "salt": "d8c3924ce6cd9056bd9a33a3793f275d",
+  "nonce": "8599630a8112002fe92a1682",
+  "tag": "bda7126c236f6d28c7a0876ddbb63d5c",
+  "ciphertext": "b87bcd0de2e6ad3c5e21dbdbc12ac64c2ba3f3e58f6e0961114a5de2be858c67daa5c62f380ed88e36f3ccdba15630"
+}

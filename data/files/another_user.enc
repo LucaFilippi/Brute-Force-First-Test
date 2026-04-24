@@ -1,0 +1,7 @@
+{
+  "username": "another_user",
+  "salt": "4d33b2ca0367dd12b21688a00ab7ef86",
+  "nonce": "fd26b13334ea0b87ebe2563f",
+  "tag": "f18595f040029159571eaaeeddb6533e",
+  "ciphertext": "4984d7ae8fedf79380dac657750087e2f99c"
+}

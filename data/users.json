@@ -1,10 +1,14 @@
 {
-  "john_doe": {
-    "password_hash": "b48b168f222f7a61fea00abe54a89ea853eb5fd1bdad0313d44f8f9d2c689d6e",
-    "salt": "4596f94a19f2a3552b8235ff5a8bfa59"
+  "test_user": {
+    "password_hash": "673252b5b66553fdccabdd18ed512a2c8dc33370dc8906a613c876df1f38b899",
+    "salt": "5614c919c989e6e0c22ca78104977671"
   },
-  "alice": {
-    "password_hash": "a21a58b74f7ae12eebcb4f96b1e519d81c0d0c7ac8d99caab2749cb96471a2bf",
-    "salt": "97e870f6fe4e08ce8aeb5435a6be4e25"
+  "another_user": {
+    "password_hash": "aa3cc916eedc26d8b8ddb884381fecf4cede4de13d381f39038af6076163f3d7",
+    "salt": "6de36a1a8af6ce7c009e5adfbae86afd"
   },
+  "Luca Filippi #1": {
+    "password_hash": "5277ac9b1b6aeffc6e645c6964d73cebcc84db8098e20bbe466b7df1e2055d15",
+    "salt": "df69b1a3169a4fa8daa54ca129d3ed0b"
+  }
 }
